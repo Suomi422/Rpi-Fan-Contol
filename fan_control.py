@@ -68,7 +68,7 @@ def main():
             fan_speed = get_fan_speed(temp)
             logging.info(f"Temperature: {temp:.1f}°C, Fan Speed: {fan_speed.name}")
 
-            pwm.ChangeDutyCycle(fan_speed.value)
+            PWM.ChangeDutyCycle(fan_speed.value)
             if fan_speed == FanSpeed.OFF.value:
                 time.sleep(5)
             else:
@@ -76,9 +76,9 @@ def main():
     except Exception as e:
         logging.error(f"An error occurred: {e}")
     finally:
-        pwm.ChangeDutyCycle(FanSpeed.OFF.value)
+        PWM.ChangeDutyCycle(FanSpeed.OFF.value)
         time.sleep(1)
-        pwm.stop()
+        PWM.stop()
         if SHOULD_RUN_AT_SERVICE_STOP == True:
             GPIO.cleanup()
         logging.error("Stopping service")
