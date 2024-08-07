@@ -69,7 +69,7 @@ def main():
             logging.info(f"Temperature: {temp:.1f}°C, Fan Speed: {fan_speed.name}")
 
             pwm.ChangeDutyCycle(fan_speed.value)
-            if fan_speed == FanSpeed.OFF:
+            if fan_speed == FanSpeed.OFF.value:
                 time.sleep(5)
             else:
                 time.sleep(20)
