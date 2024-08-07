@@ -14,8 +14,8 @@ SHOULD_RUN_AT_SERVICE_STOP = False
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PWM_PIN, GPIO.OUT)
-pwm = GPIO.PWM(PWM_PIN, 1000)  # 1kHz frequency (Noctua NF-A4x10 5V PWM)
-pwm.start(50)
+PWM = GPIO.PWM(PWM_PIN, 1000)  # 1kHz frequency (Noctua NF-A4x10 5V PWM)
+PWM.start(50)
 
 
 class FanSpeed(Enum):
